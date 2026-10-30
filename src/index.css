@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+.font-serif-doc, #a4-print-document, .a4-doc-text, .a4-paper-sheet, .appendix-a4-page {
+  font-family: 'Times New Roman', 'Tinos', 'Noto Serif', 'Lora', Times, serif !important;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "liga" 1, "kern" 1;
+}
+
+.font-serif-doc table, .a4-paper-sheet table, .appendix-a4-page table {
+  font-family: 'Times New Roman', 'Tinos', 'Noto Serif', Times, serif !important;
+}
+
+.font-serif-doc p, #a4-print-document p, .a4-doc-text p {
+  line-height: 1.55;
+  margin-bottom: 0.45rem;
+}
+
+.font-serif-doc strong, #a4-print-document strong, .a4-doc-text strong {
+  font-weight: 700;
+}
+
+/* Crisp KaTeX Mathematical Notation in A4 Preview */
+.katex {
+  font-size: 1.06em !important;
+  color: #000000 !important;
+  font-weight: 500;
+  text-rendering: auto;
+}
+
+.katex-display {
+  margin: 0.6em 0 !important;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 2px 0;
+}
+
+.katex .mathnormal {
+  font-family: KaTeX_Math, 'Times New Roman', serif !important;
+  font-style: italic;
+}
+
+.katex .mord.mathbf {
+  font-family: KaTeX_Main, 'Times New Roman', serif !important;
+  font-weight: bold;
+}
