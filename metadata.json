@@ -1,0 +1,6 @@
+{
+  "name": "AI Lesson Planner Pro",
+  "description": "Hệ thống Trợ lý AI biên soạn Kế hoạch bài dạy chuẩn CV 5512 & CV 2345, lập Kế hoạch cá nhân & Kế hoạch tổ chuyên môn từ công văn chỉ đạo, mô phỏng trực quan chụp ảnh tách nền trong suốt, tạo đề thi và thẩm định thể thức văn bản.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

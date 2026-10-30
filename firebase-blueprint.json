@@ -1,0 +1,90 @@
+{
+  "entities": {
+    "License": {
+      "title": "Issued License",
+      "description": "Licenses issued for teachers with device locking and expiration",
+      "type": "object",
+      "properties": {
+        "key": { "type": "string" },
+        "ownerName": { "type": "string" },
+        "school": { "type": "string" },
+        "issuedAt": { "type": "string" },
+        "expiryDate": { "type": "string" },
+        "status": { "type": "string" },
+        "boundDeviceId": { "type": "string" },
+        "isTrial": { "type": "boolean" }
+      },
+      "required": ["key", "expiryDate", "status"]
+    },
+    "SharedApiKey": {
+      "title": "Shared System API Key",
+      "description": "Cloud-hosted Gemini API keys shared across all teachers for high-capacity generation",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "key": { "type": "string" },
+        "label": { "type": "string" },
+        "status": { "type": "string", "enum": ["active", "paused"] },
+        "addedBy": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["key", "status"]
+    },
+    "AdminProfile": {
+      "title": "System Administrator Profile",
+      "description": "Author and admin contact information, photo and bio",
+      "type": "object",
+      "properties": {
+        "fullName": { "type": "string" },
+        "title": { "type": "string" },
+        "school": { "type": "string" },
+        "phone": { "type": "string" },
+        "zalo": { "type": "string" },
+        "email": { "type": "string" },
+        "photoUrl": { "type": "string" },
+        "bio": { "type": "string" },
+        "achievements": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["fullName"]
+    },
+    "OnlinePresence": {
+      "title": "Online Teacher Presence",
+      "description": "Live online presence status and heartbeat for teachers nationwide",
+      "type": "object",
+      "properties": {
+        "deviceId": { "type": "string" },
+        "teacherName": { "type": "string" },
+        "school": { "type": "string" },
+        "province": { "type": "string" },
+        "avatarUrl": { "type": "string" },
+        "isAdmin": { "type": "boolean" },
+        "isVip": { "type": "boolean" },
+        "currentTab": { "type": "string" },
+        "lastActiveAt": { "type": "number" },
+        "status": { "type": "string", "enum": ["online", "offline"] }
+      },
+      "required": ["deviceId", "lastActiveAt"]
+    }
+  },
+  "firestore": {
+    "/licenses/{licenseId}": {
+      "entity": "License",
+      "description": "Store all issued teacher licenses and statuses"
+    },
+    "/shared_api_keys/{keyId}": {
+      "entity": "SharedApiKey",
+      "description": "Shared Gemini API keys pool for all users"
+    },
+    "/system_config/{configId}": {
+      "entity": "AdminProfile",
+      "description": "System level configurations including admin profile and avatar"
+    },
+    "/online_presences/{presenceId}": {
+      "entity": "OnlinePresence",
+      "description": "Real-time presence registry for active teachers online nationwide"
+    }
+  }
+}
+
